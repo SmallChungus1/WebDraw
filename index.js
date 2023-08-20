@@ -7,12 +7,23 @@ var size = slider.value
 var squares = document.querySelectorAll(".squareStyle")
 
 function gridDrawSession(){
+    var drawing = false
     console.log("Grid Draw Session Called")
     squares.forEach(square => {
 
-        square.addEventListener("mousedown",() => {
-            console.log("detected")
-            square.style.backgroundColor="black"
+        square.addEventListener("mouseover",() => {
+            square.addEventListener("mousedown",()=>{
+            
+                drawing = true
+            })
+            square.addEventListener("mouseup",()=>{
+                
+                drawing = false
+            })
+            if(drawing === true){
+                square.style.backgroundColor="black"
+            }
+            
         })
         
     })
