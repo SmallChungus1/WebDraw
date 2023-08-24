@@ -8,7 +8,6 @@ var squares = document.querySelectorAll(".squareStyle")
 
 function gridDrawSession(){
     var drawing = false
-    console.log("Grid Draw Session Called")
     squares.forEach(square => {
 
         square.addEventListener("mouseover",() => {
@@ -20,11 +19,21 @@ function gridDrawSession(){
                 
                 drawing = false
             })
-            if(drawing === true){
+           square.addEventListener("mousemove",()=>{
+
+            if(drawing){
+                
                 square.style.backgroundColor="black"
             }
+           })
+           
+
+            
+             
             
         })
+
+        
         
     })
 }
